@@ -44,22 +44,8 @@ $app -> post ("/users", function (Request $request, Response $response, array $a
 	return $response;
 });
 
-$app -> put ("/users/[{id}]", function (Request $request, Response $response, array $args) {
-	$controller = new UsersController();
-	$params = $request -> getParsedBody ();
-	$result = $controller -> saveUser ($args["id"], $params);
 
-	$response = $response -> withJson ($result);
-	return $response;
-});
 
-$app -> delete ("/users/[{id}]", function (Request $request, Response $response, array $args) {
-	$controller = new UsersController();
-	$result = $controller -> removeUser ($args["id"]);
-
-	$response = $response -> withJson ($result);
-	return $response;
-});
 
 $app -> get ("/cards", function (Request $request, Response $response, array $args) {
 	$controller = new CardsController();

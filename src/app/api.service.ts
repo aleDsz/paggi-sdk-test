@@ -10,6 +10,17 @@ export class ApiService {
 
 	}
 
+	find(route: string, id: number) {
+		const headers = new Headers({
+			'Content-Type': 'application/json; charset=utf-8',
+		});
+
+		return this.http.get(environment.api_path + route + "/" + id, new RequestOptions({
+			method: RequestMethod.Get,
+			headers: headers
+		}));
+	}
+
 	get(route: string, obj: any) {
 		const headers = new Headers({
 			'Content-Type': 'application/json; charset=utf-8',

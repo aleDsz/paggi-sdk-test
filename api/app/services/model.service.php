@@ -24,8 +24,6 @@ class ModelService
 	public static function save($obj)
 	{
 		$dao = ModelFactory::getDataAccessInstance();
-
-		$obj -> created_at = null;
 		$obj -> updated_at = date ("Y-m-d H:i:s");
 
 		$dao -> save ($obj);

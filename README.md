@@ -1,4 +1,21 @@
-# Escopo
+# Paggamentos Front
+
+Instalação
+-------------
+
+```
+npm install
+```
+
+Desenvolvimento
+-------------
+
+```
+ng serve
+```
+
+Escopo
+-------------
 
 Você possui uma empresa de pagamentos, e precisa implementar uma API através das quais seus clientes poderão manipular o cadastro de cartões de crédito. Os dados do cartão de crédito são estes abaixo:
 
@@ -23,7 +40,8 @@ OU
 * Implementar a API acima em uma interface simples.
 
 
-# Requisitos:
+Requisitos:
+-------------
 
 * Pode utilizar um banco de dados relacional ou não relacional.
 * Na API, utilizar um dos micro-frameworks abaixo:

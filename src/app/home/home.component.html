@@ -30,7 +30,52 @@
 </div>
 
 <div class="ui home">
-	<div class="ui text container">
-		
+	<div class="ui container">
+		<div class="ui stackable four columns grid">
+			<div class="column" *ngFor="let item of this.cards">
+				<div class="ui link cards">
+					<div class="card">
+						<div class="image">
+							<img src="assets/images/card.jpg" alt="Credit Card">
+						</div>
+						<div class="content">
+							<div class="header">{{ item.holder_name }}</div>
+							<div class="description">
+								<p>Number: {{ item.number }}</p>
+								<p>CVV: {{ item.cvv }}</p>
+							</div>
+						</div>
+						<div class="extra content">
+							<div class="left floated">
+								<button class="ui blue button" (click)="getCard(item.id)">Editar</button>
+							</div>
+							<div class="right floated">
+								<button class="ui red button" (click)="modalRemove(item.id)">Remover</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="ui basic modal">
+	<div class="ui icon header">
+		<i class="remove icon"></i>
+		Remover cartão
+	</div>
+	<div class="content">
+		<p>Você tem certeza que deseja remover este cartão?</p>
+	</div>
+	<div class="actions">
+		<button class="ui red basic cancel inverted button">
+			<i class="remove icon"></i>
+			Não
+		</button>
+		<button class="ui green ok inverted button" (click)="removeCard(remove_id)">
+			<i class="checkmark icon"></i>
+			Sim
+		</button>
 	</div>
 </div>

@@ -17,7 +17,7 @@ class Cards {
 	/**
 	 * @field user_id
 	 * @type integer
-	 * @pk True
+	 * @pk False
 	 * @size 11
 	 */
 	public $user_id;

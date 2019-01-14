@@ -14,7 +14,8 @@ export class HomeComponent implements OnInit {
 	public model: any;
 	public error: string;
 	public success: string;
-	private cards : any;
+	public cards : any;
+	public remove_id : number;
 	private user : any;
 
 	constructor(private apiService: ApiService) {
@@ -40,10 +41,10 @@ export class HomeComponent implements OnInit {
 		this.success = null;
 	}
 
-	getCards(id: number) {
+	getCards(user_id: number) {
 		this.cards = null;
 		var obj = {
-			id: id
+			user_id: user_id
 		};
 
 		this.apiService
@@ -59,6 +60,35 @@ export class HomeComponent implements OnInit {
 					}
 				}
 			);
+	}
+
+	getCard(id: number) {
+		this.apiService
+			.find("/cards", id)
+			.subscribe(
+				(response: any) => {
+					response = JSON.parse(response._body);
+
+					if (response.status) {
+						this.model = response.data;
+					}
+				}
+			);
+	}
+
+	removeCard(id: number) {
+		this.apiService
+			.delete("/cards", id)
+			.subscribe(
+				(response: any) => {
+					this.getCards(+this.user.id);
+				}
+			);
+	}
+
+	modalRemove(id: number) {
+		$('.ui.modal').modal('show');
+		this.remove_id = id;
 	}
 
 	send(form: NgForm) {
@@ -81,6 +111,7 @@ export class HomeComponent implements OnInit {
 
 								setTimeout(() => {
 									this.clearModel();
+									this.getCards(+this.user.id);
 								}, 2000);
 							} else {
 								this.error = "Houve um erro de comunicação com nosso servidor, por favor tente novamente mais tarde.";
@@ -99,6 +130,7 @@ export class HomeComponent implements OnInit {
 
 								setTimeout(() => {
 									this.clearModel();
+									this.getCards(+this.user.id);
 								}, 2000);
 							} else {
 								this.error = "Houve um erro de comunicação com nosso servidor, por favor tente novamente mais tarde.";

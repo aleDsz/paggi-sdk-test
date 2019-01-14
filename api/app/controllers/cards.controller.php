@@ -6,6 +6,12 @@ use App\Controller;
 
 class CardsController extends Controller {
 	public function getCards($params) {
+		if (!isset ($params["user_id"])) {
+			return [
+				"status" => false
+			];
+		}
+
 		$this -> model = $this -> context -> fillObject ($params);
 		$result = $this -> model = $this -> service -> findAll ($this -> model);
 
@@ -44,8 +50,6 @@ class CardsController extends Controller {
 			$model -> id = $params["user_id"];
 		} else if (isset ($params["user"])) {
 			$model -> id = $params["user"]["id"];
-		} else if (isset ($params["users"])) {
-			$model -> id = $params["users"]["id"];
 		} else {
 			return [
 				"status" => false
@@ -73,6 +77,8 @@ class CardsController extends Controller {
 
 		if (!is_null ($model)) {
 			$this -> model = $this -> context -> fillObject ($params);
+			$this -> model -> created_at = $model -> created_at;
+
 			return [
 				"status" => $this -> model = $this -> service -> save ($this -> model)
 			];
@@ -83,7 +89,7 @@ class CardsController extends Controller {
 		}
 	}
 
-	public function removeCard($id, $params) {
+	public function removeCard($id) {
 		$this -> model -> id = $id;
 		$model = $this -> model;
 
