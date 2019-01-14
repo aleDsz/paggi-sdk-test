@@ -1,0 +1,36 @@
+<div class="ui register">
+	<div class="ui text container">
+		<form autocomplete="off" name="register_form" id="register_form" class="ui form" (ngSubmit)="send(register_form)"
+		 #register_form="ngForm">
+
+			<div class="field">
+				<h4 class="ui dividing header">Dados do cartão</h4>
+				<div class="fields">
+					<div class="six wide field">
+						<input autocomplete="false" type="text" name="number" mask="9999999999999999" id="number" #email [(ngModel)]="model.number" required class="required"
+						 placeholder="Número">
+					</div>
+					<div class="six wide field">
+						<input autocomplete="false" type="text" name="holder_name" id="holder_name" #email [(ngModel)]="model.holder_name" required class="required"
+						 placeholder="Nome do Titular">
+					</div>
+					<div class="six wide field">
+						<input autocomplete="false" type="text" name="cvv" mask="999" id="cvv" #email [(ngModel)]="model.cvv" required class="required"
+						 placeholder="CVV">
+					</div>
+				</div>
+
+				<button class="ui green button" type="submit" id="submit">Salvar</button>
+				<div class="ui error message" *ngIf="this.error != null">{{ this.error }}</div>
+				<div class="ui success message" *ngIf="this.success != null">{{ this.success }}</div>
+			</div>
+
+		</form>
+	</div>
+</div>
+
+<div class="ui home">
+	<div class="ui text container">
+		
+	</div>
+</div>

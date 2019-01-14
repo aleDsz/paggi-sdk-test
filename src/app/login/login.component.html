@@ -1,0 +1,32 @@
+<div class="ui register">
+	<div class="ui text container">
+		<form autocomplete="off" name="login_form" id="login_form" class="ui form" (ngSubmit)="send(login_form)"
+		 #login_form="ngForm">
+
+			<div class="field">
+				<h4 class="ui dividing header">Login</h4>
+				<div class="fields">
+					<div class="seven wide field">
+						<input autocomplete="false" type="email" name="email" id="email" #email [(ngModel)]="model.email" required class="required"
+						 placeholder="Email">
+					</div>
+					<div class="seven wide field">
+						<input autocomplete="false" type="password" name="password" id="password" #password [(ngModel)]="model.password"
+						 required class="required" placeholder="Senha">
+					</div>
+					<div class="two wide field">
+						<button class="ui green button" type="submit" id="submit">Login</button>
+					</div>
+				</div>
+
+				<div class="ui info message">
+					Caso não tenha um acesso, crie sua conta: <a href="/register">Clique aqui</a>
+				</div>
+
+				<div class="ui error message" *ngIf="this.error != null">{{ this.error }}</div>
+				<div class="ui success message" *ngIf="this.success != null">{{ this.success }}</div>
+			</div>
+
+		</form>
+	</div>
+</div>

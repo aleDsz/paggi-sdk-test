@@ -1,0 +1,27 @@
+<div class="ui inverted vertical masthead center aligned segment">
+	<div class="ui container">
+		<div class="ui large secondary inverted pointing menu">
+			<a class="toc item">
+				<i class="sidebar icon"></i>
+			</a>
+
+			<div class="item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+				<a href="/">
+					<i class="home icon"></i> Home
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Sidebar Menu -->
+<div class="ui vertical inverted sidebar menu">
+	<div class="item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+		<a href="/">
+			<i class="home icon"></i> Home
+		</a>
+	</div>
+</div>
+
+
+<router-outlet></router-outlet>

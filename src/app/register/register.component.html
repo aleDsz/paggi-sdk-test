@@ -1,0 +1,40 @@
+<div class="ui register">
+	<div class="ui text container">
+		<form autocomplete="off" name="register_form" id="register_form" class="ui form" (ngSubmit)="send(register_form)"
+		 #register_form="ngForm">
+
+			<div class="field">
+				<h4 class="ui dividing header">Dados de acesso</h4>
+				<div class="fields">
+					<div class="six wide field">
+						<input autocomplete="false" type="email" name="email" id="email" #email [(ngModel)]="model.email" required class="required"
+						 placeholder="Email">
+					</div>
+					<div class="five wide field">
+						<input autocomplete="false" type="password" name="password" id="password" #password [(ngModel)]="model.password"
+						 required class="required" placeholder="Senha">
+					</div>
+					<div class="five wide field">
+						<input autocomplete="false" type="password" name="passwordConfirmation" id="passwordConfirmation"
+						 #passwordConfirmation required class="required" [(ngModel)]="model.passwordConfirmation" placeholder="Repita a senha">
+					</div>
+				</div>
+			</div>
+
+			<div class="field">
+				<h4 class="ui dividing header">Dados pessoais</h4>
+				<div class="fields">
+					<div class="sixteen wide field">
+						<input autocomplete="false" type="text" name="fullName" id="name" #name [(ngModel)]="model.name"
+						 required class="required" placeholder="Nome Completo">
+					</div>
+				</div>
+
+				<button class="ui green button" type="submit" id="submit">Salvar</button>
+				<div class="ui error message" *ngIf="this.error != null">{{ this.error }}</div>
+				<div class="ui success message" *ngIf="this.success != null">{{ this.success }}</div>
+			</div>
+
+		</form>
+	</div>
+</div>

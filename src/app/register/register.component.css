@@ -1,0 +1,13 @@
+.ui.form > .field {
+	padding-bottom: 10px;
+}
+
+.ui.dropdown {
+	z-index: 9999999;
+}
+
+@media (max-width: 768px) {
+	.field > input, .field > .ui.dropdown {
+		margin: 5px auto;
+	}
+}
