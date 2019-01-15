@@ -13,6 +13,12 @@ cd api && composer install && composer dump-autoload -o
 npm install
 ```
 
+Windows:
+```
+cd api && composer install && composer dump-autoload -o
+npm install
+```
+
 Teste
 -------------
 
